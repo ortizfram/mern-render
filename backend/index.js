@@ -1,20 +1,18 @@
 import express from 'express';
 import cors from 'cors'
-import { pool } from './db/db.js';
 
 const app = express();
 
-app.use(cors()); //any//origin frontend app can ask data
+app.use(cors({
+    origin: 'http://127.0.0.1:5173'
+})); //any//origin frontend app can ask data
 
-// routes
-app.get('/', async (req,res)=> {
-    [data] = await pool.query('SELECT 1+1 AS result;');
+app.get('/', (req,res)=> {
     res.send({
-        data: data
+        users: ['alfred', 'monica', 'tukushimi']
     });
 })
 
-// connection
 const port = 3000;
 
 app.listen(port, () => {
