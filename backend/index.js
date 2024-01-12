@@ -15,12 +15,12 @@ app.use(cors({
   
 
 app.get('/', async (req,res)=> {
-    const [result] = await pool.query(`SELECT 1+1`)
-    const [DB] = await pool.query(`USE railway;
-    SELECT name FROM users;`)
+    await pool.query(`USE railway;`);
+    console.log("using railway DB")
+    const [result] = await pool.query(`SELECT 1+1`);
     res.send({
-        result: result,
-        DB_names: DB
+        message: 'hello from backend',
+        result: result
     });
 })
 

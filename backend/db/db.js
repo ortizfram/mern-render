@@ -9,5 +9,15 @@ export const pool = createPool({
   database: DB_NAME
 })
 
-// Log when the pool is created
-console.log("Database pool created...");
+// Example query to test the connection
+async function testConnection() {
+  try {
+    const [result] = await pool.query('SELECT DATABASE() AS database_name');
+    console.log('Database connection successful. Result:', result[0]);
+  } catch (error) {
+    console.error('Error connecting to the database:', error);
+  }
+}
+
+// Call the function to test the database connection
+testConnection();
