@@ -1,5 +1,8 @@
 import { createPool } from "mysql2/promise";
 import {DB_HOST, DB_NAME, DB_PASSWORD, DB_PORT, DB_USER} from "../config.js"
+import { createUserTableQuery } from "./queries/auth.queries.js";
+import { createCourseTableQuery } from "./queries/course.queries.js";
+import { createBlogTable } from "./queries/blog.queries.js";
 
 export const pool = createPool({
   user: DB_USER,
@@ -14,12 +17,23 @@ async function testConnection() {
   try {
     const [result] = await pool.query('SELECT DATABASE() AS database_name');
     const [tablesResult] = await pool.query('SHOW TABLES');
-    console.log('Database connection successful. Result:', result[0]);
+    console.log('✅ Database connection successful. Result:', result[0]);
     console.log('tables:', tablesResult[0]);
   } catch (error) {
     console.error('Error connecting to the database:', error);
   }
+};
+
+async function tablesCreation() {
+  try {
+    await pool.query(createUserTableQuery);
+    await pool.query(createCourseTableQuery);
+    await pool.query(createBlogTable);
+    console.log("📋 ALL TABLES WERE CREATED");
+  } catch (error) {
+    console.error('Error creating tables', error);
+  }
 }
 
-// Call the function to test the database connection
 testConnection();
+tablesCreation();
