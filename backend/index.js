@@ -9,12 +9,13 @@ app.use(cors({
     origin: VITE_FRONTEND_URL
 })); //any//origin frontend app can ask data
 
-app.use((req, res, next) => {
-    res.header("Access-Control-Allow-Origin", VITE_FRONTEND_URL);
-    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
-    res.header("Access-Control-Allow-Headers", "Content-Type");
-    next();
-});
+// Use cors middleware to handle CORS headers
+// Access-Control-Allow-Origin
+app.use(cors({
+    origin: VITE_FRONTEND_URL,
+    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+    credentials: true,
+  }));
   
 
 app.get('/', async (req,res)=> {
