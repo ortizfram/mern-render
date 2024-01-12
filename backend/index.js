@@ -7,11 +7,11 @@ const app = express();
 
 // Use cors middleware to handle CORS headers
 // Access-Control-Allow-Origin
-app.use(cors({
-    origin: VITE_FRONTEND_URL,
-    methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    credentials: true,
-  }));
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    // other headers...
+    next();
+  });
   
 
 app.get('/', async (req,res)=> {
