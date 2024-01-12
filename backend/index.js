@@ -11,8 +11,11 @@ app.use(cors({
 
 app.get('/', async (req,res)=> {
     const [result] = await pool.query(`SELECT 1+1`)
+    const [DB] = await pool.query(`USE railway;
+    SELECT name FROM users;`)
     res.send({
-        result: result
+        result: result,
+        DB_names: DB
     });
 })
 
