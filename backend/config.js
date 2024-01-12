@@ -4,7 +4,7 @@ config(); // Loads the .env file into process.env
 
 export const PORT = process.env.PORT || 3000
 export const HOST = process.env.HOST || "http://localhost:"
-export const VITE_FRONTEND_URL = process.env.FRONTEND_URL || "http://127.0.0.1:5173"
+export const VITE_FRONTEND_URL = process.env.FRONTEND_URL || "https://buonavibra-client.onrender.com"
 export const VITE_BACKEND_URL = process.env.VITE_BACKEND_URL || "http://localhost:3000"
 
 export const PAYPAL_API_CLIENT = process.env.PAYPAL_API_CLIENT;
