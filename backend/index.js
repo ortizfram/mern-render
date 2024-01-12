@@ -5,10 +5,6 @@ import { VITE_BACKEND_URL, VITE_FRONTEND_URL, PORT } from './config.js';
 
 const app = express();
 
-app.use(cors({
-    origin: VITE_FRONTEND_URL
-})); //any//origin frontend app can ask data
-
 // Use cors middleware to handle CORS headers
 // Access-Control-Allow-Origin
 app.use(cors({
