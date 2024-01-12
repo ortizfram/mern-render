@@ -14,6 +14,22 @@ app.listen(PORT, () => {
     console.log(`Server started on port ${PORT}`,` ${VITE_BACKEND_URL}/`);
 })
 
+// Use cors middleware to handle CORS headers
+// Access-Control-Allow-Origin
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', '*');
+//     // other headers...
+//     next();
+//   });
+
+// Use cors middleware to handle CORS headers
+app.use(
+  cors({
+    origin: VITE_FRONTEND_URL, // Specify the exact origin of your frontend
+    credentials: true, // Enable credentials (cookies, HTTP authentication)
+  })
+);
+
 // configure methodOverride
 app.use(methodOverride('_method'));
 
@@ -37,21 +53,7 @@ app.set("layout", "../layouts/layout.ejs");
 app.set("view engine", "ejs");
 app.set("views", [path.join(__dirname, "src","views", "templates")]);
 
-// Use cors middleware to handle CORS headers
-// Access-Control-Allow-Origin
-// app.use((req, res, next) => {
-//     res.header('Access-Control-Allow-Origin', '*');
-//     // other headers...
-//     next();
-//   });
 
-// Use cors middleware to handle CORS headers
-app.use(
-    cors({
-      origin: VITE_FRONTEND_URL, // Specify the exact origin of your frontend
-      credentials: true, // Enable credentials (cookies, HTTP authentication)
-    })
-  );
   
 
 app.get('/', async (req,res)=> {
