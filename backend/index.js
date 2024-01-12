@@ -16,19 +16,19 @@ app.listen(PORT, () => {
 
 // Use cors middleware to handle CORS headers
 //Access-Control-Allow-Origin
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', VITE_FRONTEND_URL); // *
-    // other headers...
-    next();
-  });
+// app.use((req, res, next) => {
+//     res.header('Access-Control-Allow-Origin', VITE_FRONTEND_URL); // *
+//     // other headers...
+//     next();
+//   });
 
 // Use cors middleware to handle CORS headers
-// app.use(
-//   cors({
-//     origin: VITE_FRONTEND_URL, // Specify the exact origin of your frontend
-//     credentials: true, // Enable credentials (cookies, HTTP authentication)
-//   })
-// );
+app.use(
+  cors({
+    origin: VITE_FRONTEND_URL, // Specify the exact origin of your frontend
+    credentials: true, // Enable credentials (cookies, HTTP authentication)
+  })
+);
 
 // configure methodOverride
 app.use(methodOverride('_method'));
