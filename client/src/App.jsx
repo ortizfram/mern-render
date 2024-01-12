@@ -13,7 +13,10 @@ function App() {
       <h1>MERN Render</h1>
       <button
         onClick={async () => {
-          const res = await fetch(`${URL}`);
+          const res = await fetch(`${URL}`, {
+            mode: 'cors',
+            credentials: 'include',
+          });
           const data = await res.json();
           console.log(data);
           setResult(data);
