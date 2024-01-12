@@ -15,7 +15,7 @@ app.use(cors({
   
 
 app.get('/', async (req,res)=> {
-    const [result] = await pool.query(`SELECT username FROM users`);
+    const [result] = await pool.query(`SELECT 1+1 as result`);
     res.send({
         message: 'hello from backend',
         result: result
