@@ -9,6 +9,14 @@ app.use(cors({
     origin: VITE_FRONTEND_URL
 })); //any//origin frontend app can ask data
 
+app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", VITE_FRONTEND_URL);
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+    res.header("Access-Control-Allow-Headers", "Content-Type");
+    next();
+});
+  
+
 app.get('/', async (req,res)=> {
     const [result] = await pool.query(`SELECT 1+1`)
     const [DB] = await pool.query(`USE railway;
