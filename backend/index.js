@@ -15,9 +15,9 @@ app.listen(PORT, () => {
 })
 
 // Use cors middleware to handle CORS headers
-Access-Control-Allow-Origin
+//Access-Control-Allow-Origin
 app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Origin', VITE_FRONTEND_URL); // *
     // other headers...
     next();
   });
