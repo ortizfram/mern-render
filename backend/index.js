@@ -25,7 +25,7 @@ app.listen(PORT, () => {
 // Use cors middleware to handle CORS headers
 app.use(
   cors({
-    origin: VITE_FRONTEND_URL, // Specify the exact origin of your frontend
+    origin: true, // Specify the exact origin of your frontend
     credentials: true, // Enable credentials (cookies, HTTP authentication)
   })
 );
