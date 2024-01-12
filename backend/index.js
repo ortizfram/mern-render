@@ -2,8 +2,39 @@ import express from 'express';
 import cors from 'cors'
 import { pool } from './db/db.js';
 import { VITE_BACKEND_URL, VITE_FRONTEND_URL, PORT } from './config.js';
+import fileUpload from "express-fileupload";
+import methodOverride from "method-override";
+import path from "path";
+import { fileURLToPath } from "url";
 
+// connection
 const app = express();
+app.listen(PORT, () => {
+    console.log(`Server started on port ${PORT}`,` ${VITE_BACKEND_URL}/`);
+})
+
+// configure methodOverride
+app.use(methodOverride('_method'));
+
+// Set default time zone
+Intl.DateTimeFormat = Intl.DateTimeFormat(undefined, { timeZone: 'America/Argentina/Buenos_Aires' });
+
+// shortcuts for files/dirs
+export const __filename = fileURLToPath(import.meta.url);
+export const __dirname = path.dirname(__filename);
+
+//default option
+app.use(fileUpload());
+
+//Set up serving static files in Express:
+app.use(express.static(path.join(__dirname, "src","public")));
+app.use("/uploads", express.static(path.join(__dirname, "src","uploads")));
+
+// config templates and EJS
+app.use(expressEjsLayouts);
+app.set("layout", "../layouts/layout.ejs");
+app.set("view engine", "ejs");
+app.set("views", [path.join(__dirname, "src","views", "templates")]);
 
 // Use cors middleware to handle CORS headers
 // Access-Control-Allow-Origin
@@ -30,8 +61,3 @@ app.get('/', async (req,res)=> {
     });
 })
 
-
-app.listen(PORT, () => {
-    console.log(`Server started on port ${PORT}`,` ${VITE_BACKEND_URL}/`);
-
-})
