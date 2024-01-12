@@ -1,12 +1,12 @@
 import express from 'express';
 import cors from 'cors'
 import { pool } from './db/db.js';
-import { VITE_BACKEND_URL, FRONTEND_URL, PORT } from './config.js';
+import { VITE_BACKEND_URL, VITE_FRONTEND_URL, PORT } from './config.js';
 
 const app = express();
 
 app.use(cors({
-    origin: FRONTEND_URL
+    origin: VITE_FRONTEND_URL
 })); //any//origin frontend app can ask data
 
 app.get('/', async (req,res)=> {
