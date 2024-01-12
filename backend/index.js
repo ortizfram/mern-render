@@ -16,7 +16,7 @@ const app = express();
 // Use cors middleware to handle CORS headers
 app.use(
     cors({
-      origin: true, // Specify the exact origin of your frontend VITE_FRONTEND_URL || true for ANY
+      origin: VITE_FRONTEND_URL, // Specify the exact origin of your frontend
       credentials: true, // Enable credentials (cookies, HTTP authentication)
     })
   );
