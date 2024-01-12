@@ -6,6 +6,7 @@ import fileUpload from "express-fileupload";
 import methodOverride from "method-override";
 import path from "path";
 import { fileURLToPath } from "url";
+import expressEjsLayouts from 'express-ejs-layouts';
 
 // connection
 const app = express();
