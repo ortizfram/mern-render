@@ -13,7 +13,9 @@ export const pool = createPool({
 async function testConnection() {
   try {
     const [result] = await pool.query('SELECT DATABASE() AS database_name');
+    const [tablesResult] = await pool.query('SHOW TABLES');
     console.log('Database connection successful. Result:', result[0]);
+    console.log('tables:', tablesResult[0]);
   } catch (error) {
     console.error('Error connecting to the database:', error);
   }
