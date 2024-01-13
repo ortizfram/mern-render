@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import { pool } from "../db.js";
+import { pool } from "../../db/db.js";
 import { setResetToken } from "../../db/queries/auth.queries.js";
 
 const generateResetToken = async (email) => {

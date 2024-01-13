@@ -9,9 +9,9 @@ import {
   updateBlogQuery,
 } from "../../db/queries/blog.queries.js";
 import slugify from "slugify";
-import { pool } from "../db.js";
+import { pool } from "../../db/db.js";
 import path from "path";
-import { __dirname } from "../../apps.js";
+import { __dirname } from "../../index.js";
 import { tableCheckQuery } from "../../db/queries/course.queries.js";
 import createTableIfNotExists from "../public/js/createTable.js";
 import { Marked, marked } from "marked";

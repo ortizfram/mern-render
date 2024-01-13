@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { pool } from "../db.js";
+import { pool } from "../../db/db.js";
 import {
   postSignupQuery,
   postLoginQuery,
@@ -17,10 +17,10 @@ import setUserRole from "../public/js/setUserRole.js";
 import crypto from "crypto";
 import generateResetToken from "../utils/generateToken.js";
 import jwt from "jsonwebtoken";
-import { HOST } from "../config.js";
+import { HOST } from "../../config.js";
 import sendResetEmail from "../utils/sendEmail.js";
 import path from "path";
-import { __dirname } from "../../apps.js";
+import { __dirname } from "../../index.js";
 
 // load .ENV
 config();

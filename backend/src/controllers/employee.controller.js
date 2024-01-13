@@ -1,12 +1,5 @@
 // controllers/employeeController.js
-import {
-  createEmployeeQuery,
-  getEmployeesQuery,
-  getEmployeeQuery,
-  delEmployeeQuery,
-  putEmployeeQuery,
-} from "../../db/queries.js";
-import { pool } from "../db.js";
+import { pool } from "../../db/db.js";
 
 const getEmployees = async (req, res) => {
   const [rows] = await pool.query(getEmployeesQuery);

@@ -1,5 +1,5 @@
 // controllers/indexController.js
-import { pool } from "../db.js";
+import { pool } from "../../db/db.js";
 import sendEmailContactForm from "../utils/sendEmailContactForm.js";
 
 const getPing = async (req, res) => {

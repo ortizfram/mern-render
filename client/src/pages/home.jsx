@@ -1,0 +1,119 @@
+import React, { useEffect } from 'react';
+
+const HomePage = () => {
+  useEffect(() => {
+    // Smooth scrolling to a specific element by offsetting scroll position
+    document.querySelector('a[href="/#about1"]').addEventListener('click', function (e) {
+      e.preventDefault(); // Prevent the default link behavior
+      const targetElement = document.querySelector('#about1'); // Select the target element
+      const offset = -108; // Offset adjustment value in pixels
+
+      if (targetElement) {
+        // Calculate the target position and scroll to it
+        const targetPosition = targetElement.offsetTop + offset;
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth',
+        });
+      }
+    });
+  }, []);
+
+  return (
+    <div className="home-page-container">
+      {/* hero */}
+      <div className="hero-container home-hero">
+        <img className="hero-logo" src="images/white-logo-buonavibra.png" alt="" />
+      </div>
+
+      {/* about */}
+      <div className="container about" id="about1">
+        <h1 className="section-title">Acerca de.</h1>
+
+        <div className="row">
+          <div className="col-md-6 text-center">
+            <img
+              src="images/me-about.jpg"
+              style={{ maxWidth: '300px', height: 'auto' }}
+              className="shadow-2xl rounded-circle w-100"
+              alt="Marcela Marzetti Gimenez"
+            />
+            <h3 className="mt-3 font-weight-bold highlight-txt">Marcela Marzetti</h3>
+          </div>
+          <div className="col-md-6 text-center">
+            <p className="text-xl">
+              <span>¡Bienvenido/a a mi página web!<br /><br /></span>
+              Mi nombre es Marcela Marzetti y soy una persona como tú, transitando esta experiencia humana aquí en la Tierra.
+              Soy licenciada en administración de empresas y he dedicado gran parte de mi vida a gestionar negocios. Sin embargo,
+              mi camino me llevó al yoga kundalini, una práctica que transformó mi vida y me permitió conectar con mi propia
+              sabiduría interna y mi gurú interno. En estos tiempos de incertidumbre y cambios constantes, el yoga kundalini es
+              una herramienta poderosa para gestionar nuestras energías y conectarnos con nuestro corazón y nuestra alma. A través
+              de esta práctica, podemos activar nuestra magia interna y vivir en un estado de salud, felicidad, dicha, amor,
+              gratitud, alegría, abundancia, paz y prosperidad. Mi intención es acompañarte en este camino de autodescubrimiento
+              y ayudarte a conectar con tu propio gurú interno, esa sabiduría interna que te guía y te permite obtener tu
+              auto-maestría. Juntos, podemos abrir la puerta al campo ilimitado de infinitas posibilidades y concretar todas tus
+              intenciones para vivir en un estado de armonía. ¡Te invito a explorar mi página web y descubrir cómo puedo
+              ayudarte en este camino de crecimiento personal!
+            </p>
+          </div>
+        </div>
+      </div>
+
+      {/* contact */}
+      <div id="contact" className="bg-cover bg-center bg-brightness-50 py-6 h-50vh mt-310px md:m-auto md:mt-50px">
+        <div>
+          <div>
+            <h1 className="section-title italic font-bold text-white">Contacto.</h1>
+
+            {/* Row for contact icons */}
+            <div className="row mt-4 container">
+              <div className="col backdrop-filter p-4 rounded col-md-6 mx-auto d-flex justify-content-between">
+                <div className="list-unstyled d-flex justify-content-between">
+                  <a href="https://wa.me/2615996913" target="_blank">
+                    <img className="icon" src="images/whatsapp-white-icon.png" alt="WhatsApp" />
+                  </a>
+                  <a href="https://www.instagram.com/buonavibra_?igsh=MWR5NDhiZHd3MjY5MA==" target="_blank">
+                    <img className="icon" src="images/instagram-white-icon.png" alt="Instagram" />
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* contact form */}
+          <div className="row mt-4">
+            <div className="col rounded">
+              <form action="/send-email" method="POST">
+                <h3 className="highlight-txt">Contactar por Email.</h3>
+                <div className="mb-3">
+                  <label htmlFor="name" className="form-label">
+                    Nombre
+                  </label>
+                  <input type="text" className="form-control" id="name" name="name" />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">
+                    Correo Electrónico
+                  </label>
+                  <input type="email" className="form-control" id="email" name="email" />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="message" className="form-label">
+                    Mensaje
+                  </label>
+                  <textarea className="form-control" id="message" rows="3" name="msg"></textarea>
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Enviar
+                </button>
+                </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default HomePage;
+

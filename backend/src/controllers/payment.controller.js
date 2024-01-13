@@ -4,7 +4,7 @@
     PAYPAL_API,
     PAYPAL_API_CLIENT,
     PAYPAL_API_SECRET,
-  } from "../config.js";
+  } from "../../config.js";
   import axios from "axios";
   import {
     getCourseFromIdQuery,
@@ -12,7 +12,7 @@
     insertUserCourseQuery,
     tableCheckQuery,
   } from "../../db/queries/course.queries.js";
-  import { pool } from "../db.js";
+  import { pool } from "../../db/db.js";
   import { createTableUserCourses, createUserTableQuery } from "../../db/queries/auth.queries.js";
   import mercadopago from "mercadopago";
   import { config } from "dotenv";

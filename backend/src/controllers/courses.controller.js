@@ -1,6 +1,6 @@
 //src/controllers/courses.controller.js
 import slugify from "slugify";
-import { pool } from "../db.js";
+import { pool } from "../../db/db.js";
 import path from "path";
 import {
   courseFieldsPlusAuthor_q,
@@ -17,7 +17,7 @@ import {
   tableCheckQuery,
   updateCourseQuery,
 } from "../../db/queries/course.queries.js";
-import { __dirname, setCustomMimeTypes } from "../../apps.js";
+import { __dirname, setCustomMimeTypes } from "../../index.js";
 import { fetchUserByField } from "../../db/queries/auth.queries.js";
 
 //COURSE CREATE/UPDATE/DELETE

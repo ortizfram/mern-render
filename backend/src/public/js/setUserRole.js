@@ -1,6 +1,6 @@
 // makeUserAdmin.js
 import { getUserByEmail_q, setUserRole_q } from "../../../db/queries/admin.queries.js";
-import { pool } from "../../db.js";
+import { pool } from "../../../db/db.js";
 
 const getUserByEmail = async (email) => {
   try {
