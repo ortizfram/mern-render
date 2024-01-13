@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import Navbar from "./components/navbar2";
+import Footer from "./components/footer";
 
 
 function App() {
@@ -12,7 +13,7 @@ function App() {
 
   return (
     <>
-    <Navbar />
+    <Navbar /> 
       <h1>MERN Render</h1>
       <button
         onClick={async () => {
@@ -29,6 +30,7 @@ function App() {
       </button>
 
       <pre>{JSON.stringify(result, null, 2)}</pre>
+      <Footer />
     </>
   );
 }
